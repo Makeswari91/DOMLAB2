@@ -52,3 +52,17 @@ const topMenuLinks = document.querySelectorAll("#top-menu a");
 let activeMenuItem = null;
 
 
+topMenuEl.addEventListener("click", function(event){
+  event.preventDefault();
+  if (event.target.tagName !== "A") 
+    return;
+  const clickedLink = event.target;
+  const clickedText = clickedLink.textContent.toLowerCase();
+  console.log(clickedText); 
+}
+)
+
+
+
+
+
