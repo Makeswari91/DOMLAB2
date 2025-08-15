@@ -90,3 +90,6 @@ function buildSubmenu(subLinks){
     subMenuEl.appendChild(subLinkEl);
   });
 }
+
+subMenuEl.addEventListener("click", function (event){
+  event.preventDefault();});
