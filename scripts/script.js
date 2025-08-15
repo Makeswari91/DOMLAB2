@@ -83,4 +83,10 @@ if(activeMenuItem === clickedLink){
 
 function buildSubmenu(subLinks){
   subMenuEl.innerHTML = ""; 
+  subLinks.forEach((subLink) => {
+    const subLinkEl = document.createElement("a");
+    subLinkEl.setAttribute("href", subLink.href);
+    subLinkEl.textContent = subLink.text;
+    subMenuEl.appendChild(subLinkEl);
+  });
 }
