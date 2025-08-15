@@ -81,3 +81,6 @@ if(activeMenuItem === clickedLink){
   buildSubmenu(menuItem.subLinks);
 });
 
+function buildSubmenu(subLinks){
+  subMenuEl.innerHTML = ""; 
+}
