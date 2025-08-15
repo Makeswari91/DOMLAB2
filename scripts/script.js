@@ -54,15 +54,30 @@ let activeMenuItem = null;
 
 topMenuEl.addEventListener("click", function(event){
   event.preventDefault();
-  if (event.target.tagName !== "A") 
+  if(event.target.tagName !== "A") 
     return;
   const clickedLink = event.target;
   const clickedText = clickedLink.textContent.toLowerCase();
   console.log(clickedText); 
-}
-)
 
+const menuItem = menuLinks.find((item) => item.text === clickedText);
+if(activeMenuItem === clickedLink){
+    clickedLink.classList.remove("active");
+    subMenuEl.style.top = "0";
+    activeMenuItem = null;
+    return;
+  }
 
+// part 6 (Adding Submenu Interaction)
 
-
+  topMenuLinks.forEach((link) => link.classList.remove("active"));
+  clickedLink.classList.add("active");
+  activeMenuItem = clickedLink;
+  if (!menuItem.subLinks){
+    subMenuEl.style.top = "0";
+    return;
+  }
+  subMenuEl.style.top = "100%";
+  buildSubmenu(menuItem.subLinks);
+});
 
