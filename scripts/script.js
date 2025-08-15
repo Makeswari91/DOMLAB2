@@ -92,4 +92,12 @@ function buildSubmenu(subLinks){
 }
 
 subMenuEl.addEventListener("click", function (event){
-  event.preventDefault();});
+  event.preventDefault();
+if (event.target.tagName !== "A") return;
+  const subLinkText = event.target.textContent;
+  console.log(subLinkText); 
+  subMenuEl.style.top = "0";
+  topMenuLinks.forEach((link) => link.classList.remove("active"));
+  mainEl.innerHTML = `<h1>${subLinkText}</h1>`;
+  activeMenuItem = null;
+});
